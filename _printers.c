@@ -1,14 +1,14 @@
 #include "main.h"
 
 /**
- * print_from_to - prints a series of char addressess
- * @begin: beginning address
- * @end: termination address
- * @except:  address to skip
+ * print_from_to - prints a range of char addresses
+ * @start: starting address
+ * @stop: stopping address
+ * @except: except address
  *
- * Return: sum of bytes printed
+ * Return: number bytes printed
  */
-int print_from_to(char *begin, char *end, char *except)
+int print_from_to(char *start, char *stop, char *except)
 {
 	int sum = 0;
 
@@ -22,17 +22,17 @@ int print_from_to(char *begin, char *end, char *except)
 }
 
 /**
- * print_rev - prints given string in reverse
- * @ap: string passed to be printed
- * @para: the parameters struct
+ * print_rev - prints string in reverse
+ * @ap: string
+ * @params: the parameters struct
  *
  * Return: number bytes printed
  */
-int print_rev(va_list ap, para_t *para)
+int print_rev(va_list ap, params_t *params)
 {
-	char *str = va_arg(ap, char *);
-	(void)para;
 	int len, sum = 0;
+	char *str = va_arg(ap, char *);
+	(void)params;
 
 	if (str)
 	{
@@ -46,20 +46,20 @@ int print_rev(va_list ap, para_t *para)
 }
 
 /**
- * print_rot13 - prints given string in rot13
- * @ap: string passed
- * @para: struct
+ * print_rot13 - prints string in rot13
+ * @ap: string
+ * @params: the parameters struct
  *
- * Return: total value of bytes printed
+ * Return: number bytes printed
  */
-int print_rot13(va_list ap, para_t *para)
+int print_rot13(va_list ap, params_t *params)
 {
 	int i, index;
+	int count = 0;
 	char arr[] =
 		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 	char *a = va_arg(ap, char *);
-	(void)para;
-	int count = 0;
+	(void)params;
 
 	i = 0;
 	index = 0;

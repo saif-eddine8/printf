@@ -1,13 +1,14 @@
 #include "main.h"
 
 /**
- * get_specifier - finds the format func
- * @s: the format string
+ * get_specifier - searches the format function
+ * @s: format string
  *
- * Return: the number of bytes printed
+ * Return: numb of bytes printed
  */
 int (*get_specifier(char *s))(va_list ap, params_t *params)
 {
+	int i = 0;
 	specifier_t specifiers[] = {
 		{"c", print_char},
 		{"d", print_int},
@@ -25,8 +26,7 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"R", print_rot13},
 		{NULL, NULL}
 	};
-	int i = 0;
-
+	
 	while (specifiers[i].specifier)
 	{
 		if (*s == specifiers[i].specifier[0])
@@ -39,12 +39,12 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 }
 
 /**
- * get_print_func - finds the format func
- * @s: the format string
+ * get_print_func - finds the format function
+ * @s: format string
  * @ap: argument pointer
  * @params: the parameters struct
  *
- * Return: the number of bytes printed
+ * Return:  number of bytes printed
  */
 int get_print_func(char *s, va_list ap, params_t *params)
 {
@@ -57,7 +57,7 @@ int get_print_func(char *s, va_list ap, params_t *params)
 
 /**
  * get_flag - finds the flag func
- * @s: the format string
+ * @s:  format string
  * @params: the parameters struct
  *
  * Return: if flag was valid

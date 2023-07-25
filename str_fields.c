@@ -3,12 +3,12 @@
 /**
  * get_precision - gets the precision from the format string
  * @ptr: string(format)
- * @params: struct(parameters)
+ * @para: struct(parameters)
  * @ap: pointer(argument)
  *
  * Return: new pointer
  */
-char *get_precision(char *ptr, params_t *params, va_list ap)
+char *get_precision(char *ptr, para_t *para, va_list ap)
 {
 	int d = 0;
 
@@ -25,6 +25,6 @@ char *get_precision(char *ptr, params_t *params, va_list ap)
 		while (_isdigit(*ptr))
 			d = d * 10 + (*ptr++ - '0');
 	}
-	params->precision = d;
+	para->precision = d;
 	return (ptr);
 }

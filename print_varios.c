@@ -24,14 +24,14 @@ int print_from_to(char *begin, char *end, char *except)
 /**
  * print_rev - prints given string in reverse
  * @ap: string passed to be printed
- * @params: the parameters struct
+ * @para: the parameters struct
  *
  * Return: number bytes printed
  */
-int print_rev(va_list ap, params_t *params)
+int print_rev(va_list ap, para_t *para)
 {
 	char *str = va_arg(ap, char *);
-	(void)params;
+	(void)para;
 	int len, sum = 0;
 
 	if (str)
@@ -48,17 +48,17 @@ int print_rev(va_list ap, params_t *params)
 /**
  * print_rot13 - prints given string in rot13
  * @ap: string passed
- * @params: struct
+ * @para: struct
  *
  * Return: total value of bytes printed
  */
-int print_rot13(va_list ap, params_t *params)
+int print_rot13(va_list ap, para_t *para)
 {
 	int i, index;
 	char arr[] =
 		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 	char *a = va_arg(ap, char *);
-	(void)params;
+	(void)para;
 	int count = 0;
 
 	i = 0;
